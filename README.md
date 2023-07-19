@@ -28,7 +28,10 @@ We will train the LeNet-5 model using the following hyperparameters:
 * Batch Size: 128
 * Number of Epochs: 15
 We will use the Adam optimizer and the CrossEntropyLoss as the loss function during training.
+
 Visualization of Intermediate Activations
 To gain insights into the patterns learned by each layer, we will visualize the intermediate activations of the model. This involves mapping the activations back to the pixel space of the input image using a Deconvnet approach.
+
 The Deconvnet is attached to each layer of the Convnet. We will selectively deactivate the activations of all other layers and feed the feature maps to the corresponding attached Deconvnet layer. In the Deconvnet, we perform unpooling to determine the locations of maxima within each pooling region. This information helps us restore the appropriate locations from the layer above during the reconstruction process. After unpooling, we apply rectification to the feature maps to ensure positive values, just like in the Convnet. This process is iteratively repeated until we reach the input pixel space.
+
 By following this approach, we can visualize the input patterns that contributed to specific activations within the Convnet layers, providing valuable insights into the learned representations.
