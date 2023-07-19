@@ -31,7 +31,10 @@ We will use the Adam optimizer and the CrossEntropyLoss as the loss function dur
 
 Visualization of Intermediate Activations
 To gain insights into the patterns learned by each layer, we will visualize the intermediate activations of the model. This involves mapping the activations back to the pixel space of the input image using a Deconvnet approach.
+<img width="501" alt="Screenshot 2023-07-19 at 10 58 19 AM" src="https://github.com/GirishWangikar/Neural-Network-Intermediate-Layer-Visualization/assets/90182154/4c4ec9f5-a2ed-49cd-a5b6-ea0d4972564d">
+
 
 The Deconvnet is attached to each layer of the Convnet. We will selectively deactivate the activations of all other layers and feed the feature maps to the corresponding attached Deconvnet layer. In the Deconvnet, we perform unpooling to determine the locations of maxima within each pooling region. This information helps us restore the appropriate locations from the layer above during the reconstruction process. After unpooling, we apply rectification to the feature maps to ensure positive values, just like in the Convnet. This process is iteratively repeated until we reach the input pixel space.
+<img width="477" alt="Screenshot 2023-07-19 at 10 58 28 AM" src="https://github.com/GirishWangikar/Neural-Network-Intermediate-Layer-Visualization/assets/90182154/50f65eb7-bcae-4481-a93a-3ec170ad204f">
 
 By following this approach, we can visualize the input patterns that contributed to specific activations within the Convnet layers, providing valuable insights into the learned representations.
